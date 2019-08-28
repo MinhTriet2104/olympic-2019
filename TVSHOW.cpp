@@ -38,7 +38,7 @@ int main() {
 	int count = 0;
 	for (int i = 0; i < n - 1; i++) {
 		for (int j = i + 1; j < n; j++) {
-			if (arr[i].start > arr[j].start && arr[i].start < arr[j].end || arr[j].start > arr[i].start && arr[j].start < arr[i].end) {
+			if (arr[i].start >= arr[j].start && arr[i].start <= arr[j].end || arr[j].start >= arr[i].start && arr[j].start <= arr[i].end) {
 				//cout << arr[i].start << " " << arr[i].end << " " << arr[j].start << " " << arr[j].end << endl;
 				count++;
 			}
