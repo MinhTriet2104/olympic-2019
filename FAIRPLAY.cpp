@@ -29,11 +29,16 @@ int main() {
 	qsort(arrB, n, sizeof(int), compare);
 
 	int point = 0;
+	int firstZero = -1;
+	int temp;
+	int j;
+	int cur;
 	for (int i = 0; i < n; i++) {
 		if (arrA[i] < arrB[i]) point++;
 		else {
-			int j = i - 1;
-			int cur = arrB[i];
+			j = firstZero != -1 ? firstZero : i - 1;
+			cur = arrB[i];
+			
 			while (arrB[j] == 0) {
 				if (cur > arrA[j]) {
 					point++;
@@ -42,6 +47,7 @@ int main() {
 				j--;
 			}
 			arrB[i] = 0;
+			if (firstZero == -1) firstZero = i;
 		}
 	}
 	
